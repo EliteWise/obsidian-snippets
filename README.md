@@ -10,23 +10,14 @@ Transfer selected code snippets from Visual Studio Code to your Obsidian Vault. 
 - 💾 **Save Code Snippets**: Select a block of code in VS Code, right click and save it directly to a new Markdown note in your Obsidian Vault.
 - 📂 **Organized Folder**: All snippets are saved in a dedicated "Snippets" folder by default within your Vault, with the appropriate language specified.
 
-[comment]: <> ![Obsidian Snippets Workflow](images/obsidian-snippets-demo.png)
+<!-- ![Obsidian Snippets Workflow](images/obsidian-snippets-demo.png) -->
 
 ---
 
 ## **Requirements**
 
-- **Obsidian** installed and configured.
-- Obsidian installed on your machine. [Download here](https://obsidian.md/download)
-- VS Code version 1.75.0 or higher.
-
----
-
-## **Extension Settings**
-
-This extension contributes the following settings:
-
-- **`obsidian-snippets.path`**: Set the path to your Obsidian Vault. This is required for saving snippets correctly.
+- **Obsidian** installed on your machine. [Download here](https://obsidian.md/download)
+- **VS Code** version 1.75.0 or higher.
 
 ---
 
