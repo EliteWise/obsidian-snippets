@@ -20,7 +20,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Obsidian snippets settings",
+      "title": "Configure Obsidian Folder",
       "properties": {
         "obsidian-snippets.path": {
           "type": "string",

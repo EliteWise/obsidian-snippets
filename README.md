@@ -1,71 +1,67 @@
-# obsidian-snippets README
+# **Obsidian Snippets**
 
-This is the README for your extension "obsidian-snippets". After writing up a brief description, we recommend including the following sections.
-
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Transfer selected code snippets from Visual Studio Code to your Obsidian Vault. This extension create organized Markdown notes for your code blocks/snippets in one click.
 
 ---
 
-## Following extension guidelines
+## **Features**
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+- ⚙️ **Configurable Path**: Set your Obsidian Vault path in the extension settings for a seamless integration.
+- 💾 **Save Code Snippets**: Select a block of code in VS Code, right click and save it directly to a new Markdown note in your Obsidian Vault.
+- 📂 **Organized Folder**: All snippets are saved in a dedicated "Snippets" folder by default within your Vault, with the appropriate language specified.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+[comment]: <> ![Obsidian Snippets Workflow](images/obsidian-snippets-demo.png)
 
-## Working with Markdown
+---
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+## **Requirements**
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+- **Obsidian** installed and configured.
+- Obsidian installed on your machine. [Download here](https://obsidian.md/download)
+- VS Code version 1.75.0 or higher.
 
-## For more information
+---
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+## **Extension Settings**
 
-**Enjoy!**
+This extension contributes the following settings:
+
+- **`obsidian-snippets.path`**: Set the path to your Obsidian Vault. This is required for saving snippets correctly.
+
+---
+
+## **How to Use**
+
+1. **Set up your Vault Path**:
+   - Execute the command **"Configure Obsidian Folder"** from the Command Palette.
+
+2. **Save a Snippet**:
+   - Select a block of code in any file in VS Code.
+   - Right-click and choose **"Save Code Snippet to Obsidian"** from the context menu.
+   - Your snippet will be saved in the "Snippets" folder of your Vault.
+
+3. **View in Obsidian**:
+   - Open Obsidian and navigate to the "Snippets" folder to view your saved snippets.
+
+---
+
+## **Release Notes**
+
+### **1.0.0**
+- Coming soon!
+
+---
+
+## **Feedback and Support**
+
+Have suggestions or encountered a bug? Open an issue on [GitHub](https://github.com/EliteWise/obsidian-snippets).
+
+---
+
+## **For Developers**
+
+Follow the [VS Code Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines) for best practices when contributing or forking this extension.
+
+---
+
+## **Enjoy!** 🎯
