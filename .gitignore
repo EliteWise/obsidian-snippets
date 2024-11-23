@@ -3,3 +3,7 @@ dist
 node_modules
 .vscode-test/
 *.vsix
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
