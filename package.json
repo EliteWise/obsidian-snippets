@@ -4,7 +4,7 @@
   "description": "Save selected code snippets from Visual Studio Code directly to a new Obsidian note in an organized folder within your Obsidian Vault.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.95.0"
+    "vscode": "^1.75.0"
   },
   "categories": [
     "Other"
@@ -16,8 +16,19 @@
       {
         "command": "obsidian-snippets.setup",
         "title": "Obsidian snippets setup"
+      },
+      {
+        "command": "obsidian-snippets.copy",
+        "title": "Copy selected code to Obsidian"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "obsidian-snippets.copy"
+        }
+      ]
+    },
     "configuration": {
       "type": "object",
       "title": "Configure Obsidian Folder",
@@ -42,7 +53,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.95.0",
+    "@types/vscode": "^1.75.0",
     "@types/mocha": "^10.0.9",
     "@types/node": "20.x",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
