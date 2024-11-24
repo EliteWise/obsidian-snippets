@@ -15,6 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const obsidianPathPersistant = String(config.get('obsidian-snippets.path'));
 		console.log(obsidianPathPersistant);
 		const snippetsFolderPath = obsidianPathPersistant + '/Snippets/';
+		// TODO: switch to async/await
 		if (!fs.existsSync(snippetsFolderPath)) {
 			fs.mkdirSync(snippetsFolderPath);
 		}
@@ -25,11 +26,13 @@ export function activate(context: vscode.ExtensionContext) {
 	}); 
 
 	const copySnippetCommand = async () => {
-		const config = vscode.workspace.getConfiguration();
+		// TODO: create a getPath function
+		let config = vscode.workspace.getConfiguration();
 		let folderPath = config.get('obsidian-snippets.path');
 
 		if(!folderPath) {
 			await setupCommand();
+			config = vscode.workspace.getConfiguration();
 			folderPath = config.get('obsidian-snippets.path');
 		}
 
@@ -57,6 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		vscode.window.showInformationMessage('Snippet copied to Obsidian!');
 
+		// TODO: Open the copied file in VS Code only when the user clicks on the notification
 		const openedMdFile = await vscode.workspace.openTextDocument(vscode.Uri.file(mdFile));
 		await vscode.window.showTextDocument(openedMdFile);
 	};
