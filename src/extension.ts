@@ -4,6 +4,14 @@ const path = require('path');
 
 export function activate(context: vscode.ExtensionContext) {
 
+	const manageSnippetsFolder = async (snippetsFolderPath: string) => {
+		const folderExist = await fs.promises.access(snippetsFolderPath).then(() => true).catch(() => false);
+
+		if(!folderExist) {
+			await fs.promises.mkdir(snippetsFolderPath);
+		}
+	}
+
 	const setupCommand = async () => {
 		vscode.window.showInformationMessage('Setting up Obsidian path...');
 		const folderUri = await vscode.window.showOpenDialog({ canSelectFolders: true, canSelectMany: false, canSelectFiles: false, openLabel: 'Select your Obsidian Vault' });
@@ -13,12 +21,9 @@ export function activate(context: vscode.ExtensionContext) {
 		const config = vscode.workspace.getConfiguration();
 		await config.update('obsidian-snippets.path', folderUri[0].path.replace('/C:', ''), vscode.ConfigurationTarget.Global);
 		const obsidianPathPersistant = String(config.get('obsidian-snippets.path'));
-		console.log(obsidianPathPersistant);
 		const snippetsFolderPath = obsidianPathPersistant + '/Snippets/';
-		// TODO: switch to async/await
-		if (!fs.existsSync(snippetsFolderPath)) {
-			fs.mkdirSync(snippetsFolderPath);
-		}
+
+		await manageSnippetsFolder(snippetsFolderPath);
 	};
 
 	const disposable = vscode.commands.registerCommand('obsidian-snippets.setup', async () => {
@@ -29,6 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
 		// TODO: create a getPath function
 		let config = vscode.workspace.getConfiguration();
 		let folderPath = config.get('obsidian-snippets.path');
+		const snippetsFolderPath = folderPath + '/Snippets/';
 
 		if(!folderPath) {
 			await setupCommand();
@@ -36,7 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
 			folderPath = config.get('obsidian-snippets.path');
 		}
 
-		const snippetsFolderPath = folderPath + '/Snippets/';
+		await manageSnippetsFolder(snippetsFolderPath);
 
 		const editor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
 		const selection: vscode.Selection | undefined = editor?.selection;
