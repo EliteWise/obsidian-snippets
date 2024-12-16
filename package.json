@@ -1,14 +1,20 @@
 {
   "name": "obsidian-snippets",
   "displayName": "Obsidian Code Snippets",
-  "description": "Save selected code snippets from Visual Studio Code directly to a new Obsidian note in an organized folder within your Obsidian Vault.",
-  "version": "0.0.1",
+  "description": "Transfer selected code snippets from Visual Studio Code to your Obsidian Vault. This extension create organized Markdown notes for your code blocks/snippets in one click.",
+  "version": "1.0.1",
+  "publisher": "EliteWise",
   "engines": {
     "vscode": "^1.75.0"
   },
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EliteWise/obsidian-snippets"
+  },
+  "icon": "images/extension-icon.png",
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
