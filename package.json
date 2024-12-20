@@ -2,7 +2,7 @@
   "name": "obsidian-snippets",
   "displayName": "Obsidian Code Snippets",
   "description": "Transfer selected code snippets from Visual Studio Code to your Obsidian Vault. This extension create organized Markdown notes for your code blocks/snippets in one click.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "EliteWise",
   "engines": {
     "vscode": "^1.75.0"

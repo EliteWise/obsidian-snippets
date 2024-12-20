@@ -5,11 +5,16 @@ import * as assert from 'assert';
 import * as vscode from 'vscode';
 import * as extension from '../extension';
 
-suite('Extension Test Suite', () => {
+suite('Extension Test Suite', async () => {
 	vscode.window.showInformationMessage('Start all tests.');
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+	test('Path should be registered in workspace global settings', async () => {
+		const config = vscode.workspace.getConfiguration();
+		const selected_path = '/testpath';
+
+		await config.update('obsidian-snippets.path', selected_path, vscode.ConfigurationTarget.Global);
+		const path = config.get('obsidian-snippets.path');
+		
+		assert.strictEqual(path, selected_path);
 	});
 });

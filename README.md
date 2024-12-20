@@ -4,6 +4,10 @@ Transfer selected code snippets from Visual Studio Code to your Obsidian Vault. 
 
 ---
 
+## **[Download from VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=EliteWise.obsidian-snippets)**
+
+---
+
 ## **Features**
 
 - 💾 **One-Click Save:** Right-click any code to save it as a Markdown note in Obsidian
@@ -32,13 +36,6 @@ Transfer selected code snippets from Visual Studio Code to your Obsidian Vault. 
 2. **View in Obsidian**:
    - Open Obsidian → Go to "Snippets" folder
    - Or click "Open File in VS Code?" right after copying
-
----
-
-## **Release Notes**
-
-### **1.0.0**
-- Coming soon!
 
 ---
 
