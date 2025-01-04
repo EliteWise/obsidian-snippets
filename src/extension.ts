@@ -6,6 +6,18 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const openFileText = 'Open File in VS Code?';
 
+	const languageMapping: { [key: string]: string } = {
+		'py': 'python',
+		'h': 'cpp',
+		'rs': 'rust',
+		'kt': 'kotlin',
+		'pl': 'perl',
+	};
+
+	const getLanguageFromExtension = (fileExtension: string): string => {
+		return languageMapping[fileExtension] || fileExtension;
+	};
+
 	const getPath = () => {
 		let config = vscode.workspace.getConfiguration();
 		return config.get('obsidian-snippets.path');
@@ -60,6 +72,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const codeSelected: string | undefined = editor?.document.getText(selection);
 
 		const fileExtension = path.extname(editor?.document.fileName).slice(1);
+		const language = getLanguageFromExtension(fileExtension);
 		const currentDate = new Date().toISOString().split('T')[0];
 		const mdFile = path.join(snippetsFolderPath, path.basename(`${editor?.document.fileName}`) + '-' + currentDate + '.md');
 		
@@ -67,9 +80,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 		try {
 			if (exists) {
-				await fs.appendFile(mdFile, `\n\n\`\`\`${fileExtension}\n${codeSelected}\n\`\`\``, (err: any) => err && console.log(err));
+				await fs.appendFile(mdFile, `\n\n\`\`\`${language}\n${codeSelected}\n\`\`\``, (err: any) => err && console.log(err));
 			} else {
-				await fs.writeFile(mdFile, `\`\`\`${fileExtension}\n${codeSelected}\n\`\`\``, (err: any) => err && console.log(err));
+				await fs.writeFile(mdFile, `\`\`\`${language}\n${codeSelected}\n\`\`\``, (err: any) => err && console.log(err));
 			}
 		} catch (error) {
 			console.log('Error appending/copying snippet:', error);
